@@ -352,7 +352,6 @@ public class Settings implements Activity {
 		advanced_panel.add(renderTime);
 		
 		JLabel incompatibleProcessLabel = new JLabel("Pause when this is launched:");
-		//                                          ("Custom render tile size:");
 		incompatibleProcess = new JTextField();
 		incompatibleProcess.setText(parent.getConfiguration().getIncompatibleProcessName());
 		
