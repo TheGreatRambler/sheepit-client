@@ -30,7 +30,7 @@ public class IncompatibleProcessChecker extends TimerTask {
 		if (isSearchProcessRunning(search)) {
 			if (this.client != null && this.client.getRenderingJob() != null && this.client.getRenderingJob().getProcessRender().getProcess() != null) {
 				this.client.getRenderingJob().setAskForRendererKill(true);
-				this.client.getRenderingJob().setUserBlockJob(true);
+				this.client.getRenderingJob().setIncompatibleProcessKill(true);
 				OS.getOS().kill(this.client.getRenderingJob().getProcessRender().getProcess());
 			}
 			this.client.suspend();
