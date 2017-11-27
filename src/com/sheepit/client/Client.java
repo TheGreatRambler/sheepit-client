@@ -31,6 +31,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 import com.sheepit.client.Error.ServerCode;
 import com.sheepit.client.Error.Type;
@@ -149,8 +150,11 @@ public class Client {
 			Thread thread_sender = new Thread(runnable_sender);
 			thread_sender.start();
 			
-			Timer incompatibleProcessChecker = new Timer();
-			incompatibleProcessChecker.schedule(new IncompatibleProcessChecker(this), 60 * 1000, 3*60*1000);
+			IncompatibleProcessChecker incompatibleProcessChecker = new IncompatibleProcessChecker(this);
+			Timer incompatibleProcessCheckerTimer = new Timer();
+			incompatibleProcessCheckerTimer.schedule(incompatibleProcessChecker, TimeUnit.MINUTES.toMillis(1), TimeUnit.MINUTES.toMillis(1));
+			
+			incompatibleProcessChecker.run(); // before the first request, check if it should be stopped
 			
 			while (this.running == true) {
 				this.renderingJob = null;
