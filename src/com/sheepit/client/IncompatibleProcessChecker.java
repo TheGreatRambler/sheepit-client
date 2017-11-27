@@ -41,7 +41,6 @@ public class IncompatibleProcessChecker extends TimerTask {
 	@Override
 	public void run() {
 		String search = this.client.getConfiguration().getIncompatibleProcessName().toLowerCase();
-		this.client.getLog().debug("IncompatibleProcessChecker::run search: '" + search + "'");
 		if (search == null || search.isEmpty()) { // to nothing
 			return;
 		}
@@ -68,7 +67,7 @@ public class IncompatibleProcessChecker extends TimerTask {
 		JProcesses processes = JProcesses.get();
 		processes.fastMode();
 		List<ProcessInfo> processesList = processes.listProcesses();
-
+		
 		for (final ProcessInfo processInfo : processesList) {
 			String name = processInfo.getName().toLowerCase();
 			if (name == null || name.isEmpty()) {
@@ -81,7 +80,6 @@ public class IncompatibleProcessChecker extends TimerTask {
 			}
 		}
 		
-		this.client.getLog().debug("IncompatibleProcessChecker::isSearchProcessRunning(" + search + ") not found");
 		return false;
 	}
 }
