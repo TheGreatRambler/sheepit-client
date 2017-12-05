@@ -351,7 +351,7 @@ public class Settings implements Activity {
 		advanced_panel.add(renderTimeLabel);
 		advanced_panel.add(renderTime);
 		
-		JLabel incompatibleProcessLabel = new JLabel("Pause when it is running:");
+		JLabel incompatibleProcessLabel = new JLabel("Pause when running:");
 		incompatibleProcess = new JTextField();
 		incompatibleProcess.setText(parent.getConfiguration().getIncompatibleProcessName());
 		

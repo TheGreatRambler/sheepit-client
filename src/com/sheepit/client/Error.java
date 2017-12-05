@@ -174,7 +174,7 @@ public class Error {
 			case RENDERER_KILLED_BY_USER:
 				return "The renderer stopped because you've blocked its project.";
 			case RENDERER_KILLED_BY_USER_INCOMPATIBLE_PROCESS:
-				return "The renderer has stopped due to an 'conflicting' running program.";
+				return "Paused: Stated process running.";
 			case RENDERER_KILLED_BY_SERVER:
 				return "The renderer stopped because it's been killed by the server. Usually because the project will take too much time or it's been paused.";
 			case SESSION_DISABLED:
