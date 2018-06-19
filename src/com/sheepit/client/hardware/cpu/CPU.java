@@ -70,6 +70,7 @@ public class CPU {
 	
 	public void generateArch() {
 		String arch = System.getProperty("os.arch").toLowerCase();
+		System.out.println(arch);
 		switch (arch) {
 			case "i386":
 			case "i686":
