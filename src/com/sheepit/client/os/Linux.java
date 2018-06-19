@@ -55,7 +55,7 @@ public class Linux extends OS {
 			
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
-				if (line.startsWith("processor")) {
+				if (line.startsWith("model name")) {
 					String buf[] = line.split(":");
 					if (buf.length > 1) {
 						ret.setName(buf[1].trim());
