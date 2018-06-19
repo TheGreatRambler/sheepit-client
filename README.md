@@ -1,4 +1,4 @@
-# **The only point for this fork is for the client to work on ARM processors (like the raspberry pi). The only change is to `/src/com/sheepit/client/os/Linux.java`**
+# **The only point for this fork is for the client to work on ARM processors (like the raspberry pi). The only changes are to `/src/com/sheepit/client/os/Linux.java` and `/src/com/sheepit/client/hardware/cpu/CPU.java`**
 
 # SheepIt Render Farm Client
 
