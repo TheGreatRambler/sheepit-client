@@ -75,7 +75,6 @@ public class CPU {
 			case "i386":
 			case "i686":
 			case "x86":
-			case "arm
 				this.arch = "32bit";
 				break;
 			case "amd64":
@@ -83,7 +82,7 @@ public class CPU {
 				this.arch = "64bit";
 				break;
 			default:
-				this.arch = "32bit";
+				this.arch = "32bit"; // yes, i know, a breaking change, but its all I can do to get this darn thing to work
 				break;
 		}
 	}
