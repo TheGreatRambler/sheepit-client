@@ -630,8 +630,12 @@ public class Client {
 		if (renderer_file.exists() == false) {
 			gui.setRenderingProjectName("");
 			this.log.error("Client::work job preparation failed (renderer file '" + renderer_file.getAbsolutePath() + "' does not exist)");
-			
-			return Error.Type.MISSING_RENDER;
+			String arch = System.getProperty("os.arch").toLowerCase();
+			if (arch.contains("arm")) {
+				this.log.error("Its okay, though, because this is ARM and this error is expected");
+			} else {
+		    		return Error.Type.MISSING_RENDER;
+			}
 		}
 		
 		Error.Type err = ajob.render();
