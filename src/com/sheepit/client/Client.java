@@ -19,7 +19,7 @@
 
 package com.sheepit.client;
 
-import java.io.BufferedReader
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
