@@ -2,6 +2,8 @@
 ## Files changed
 * `/src/com/sheepit/client/Job.java`
 * `/src/com/sheepit/client/Client.java`
+## Recommended usage for raspi
+`sudo java -jar sheepit-client.jar -cores 4 -password <your password> -ui text -login <your username> -memory 700 -rendertime 6`
 
 # SheepIt Render Farm Client
 
