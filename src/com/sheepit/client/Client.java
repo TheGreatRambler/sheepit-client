@@ -649,8 +649,13 @@ public class Client {
 	}
 	
 	protected int downloadExecutable(Job ajob) throws FermeExceptionNoSpaceLeftOnDevice {
-		execCommand("sudo apt-get install blender");
-		return this.downloadFile(ajob, ajob.getRendererArchivePath(), ajob.getRenderMd5(), String.format("%s?type=binary&job=%s", this.server.getPage("download-archive"), ajob.getId()), "renderer");
+		String arch = System.getProperty("os.arch").toLowerCase();
+		if (arch.contains("arm")) {
+		    execCommand("sudo apt-get install blender");
+		    return 0;
+		} else {
+		    return this.downloadFile(ajob, ajob.getRendererArchivePath(), ajob.getRenderMd5(), String.format("%s?type=binary&job=%s", this.server.getPage("download-archive"), ajob.getId()), "renderer");   
+		}
 	}
 	
 	private int downloadFile(Job ajob, String local_path, String md5_server, String url, String download_type) throws FermeExceptionNoSpaceLeftOnDevice {
