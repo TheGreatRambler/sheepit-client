@@ -196,8 +196,14 @@ public class Job {
 	}
 	
 	public String getRendererPath() { // this is important
-		String path = getRendererDirectory() + File.separator + OS.getOS().getRenderBinaryPath();
-		System.out.println(path);
+		String arch = System.getProperty("os.arch").toLowerCase();
+		String path;
+		if (arch.contains("arm")) {
+		    path = "blender"; //just return the command binary
+		} else {
+		    path = getRendererDirectory() + File.separator + OS.getOS().getRenderBinaryPath();
+		}
+		//System.out.println(path);
 		return path;
 	}
 	
