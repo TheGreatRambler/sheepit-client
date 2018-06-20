@@ -81,7 +81,7 @@ public class CPU {
 				this.arch = "64bit";
 				break;
 			default:
-				this.arch = null;
+				this.arch = "32bit"; // might regret this
 				break;
 		}
 	}
