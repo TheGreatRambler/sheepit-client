@@ -45,23 +45,6 @@ import com.sheepit.client.exception.FermeExceptionSessionDisabled;
 import com.sheepit.client.exception.FermeServerDown;
 import com.sheepit.client.os.OS;
 
-public void execCommand(String command) {
-    StringBuffer output = new StringBuffer();
-    Process p;
-    try {
-        p = Runtime.getRuntime().exec(command);
-	p.waitFor();
-	BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        String line = "";			
-	while ((line = reader.readLine())!= null) {
-	    output.append(line + "\n");
-	}
-    } catch (Exception e) {
-	e.printStackTrace();
-    }
-    return output.toString();
-}
-
 public class Client {
 	private Gui gui;
 	private Server server;
@@ -78,6 +61,23 @@ public class Client {
 	private boolean suspended;
 	
 	private int maxDownloadFileAttempts = 5;
+	
+	public void execCommand(String command) {
+    		StringBuffer output = new StringBuffer();
+    		Process p;
+    		try {
+        		p = Runtime.getRuntime().exec(command);
+			p.waitFor();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        		String line = "";			
+			while ((line = reader.readLine())!= null) {
+	    			output.append(line + "\n");
+			}
+    		} catch (Exception e) {
+			e.printStackTrace();
+    		}
+    		return output.toString();
+   	}
 	
 	public Client(Gui gui_, Configuration config, String url_) {
 		this.config = config;
@@ -651,7 +651,7 @@ public class Client {
 	protected int downloadExecutable(Job ajob) throws FermeExceptionNoSpaceLeftOnDevice {
 		String arch = System.getProperty("os.arch").toLowerCase();
 		if (arch.contains("arm")) {
-		    execCommand("sudo apt-get install blender");
+		    this.execCommand("sudo apt-get install blender");
 		    return 0;
 		} else {
 		    return this.downloadFile(ajob, ajob.getRendererArchivePath(), ajob.getRenderMd5(), String.format("%s?type=binary&job=%s", this.server.getPage("download-archive"), ajob.getId()), "renderer");   
