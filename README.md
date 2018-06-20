@@ -5,7 +5,7 @@
 ## Recommended usage for raspi
 `sudo java -jar sheepit-client.jar -cores 4 -password <your password> -ui text -login <your username> -memory 700 -rendertime 6`
 ## Dependencies
-`sudo apt-get install oracle-java7-jdk` (You can try `sudo apt-get install oracle-java**8**-jdk` as well)
+`sudo apt-get install oracle-java7-jdk` (You can try `sudo apt-get install oracle-java8-jdk` using `java8` as well)
 
 # SheepIt Render Farm Client
 
