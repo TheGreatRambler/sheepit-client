@@ -62,14 +62,14 @@ public class Linux extends OS {
 					}
 				}
 				
-				if (line.startsWith("CPU architecture")) {
+				if (line.startsWith("cpu family")) {
 					String buf[] = line.split(":");
 					if (buf.length > 1) {
 						ret.setFamily(buf[1].trim());
 					}
 				}
 				
-				if (line.startsWith("CPU implementer")) {
+				if (line.startsWith("model") && line.startsWith("model name") == false) {
 					String buf[] = line.split(":");
 					if (buf.length > 1) {
 						ret.setModel(buf[1].trim());
