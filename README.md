@@ -5,7 +5,7 @@
 * `/src/com/sheepit/client/hardware/cpu/CPU.java` (possibly a breaking change)
 * `/src/com/sheepit/client/os/Linux.java`
 ## Recommended usage for raspi
-`sudo java -jar sheepit-client.jar -cores 4 -password <your password> -ui text -login <your username> -memory 700 -rendertime 6`
+`sudo java -jar sheepit-client.jar -cores 4 -password <your password> -ui text -login <your username> -memory 700 -rendertime 6 -compute-method CPU`
 It is recommended to specify both `cores` and `memory` because the code to retrieve those items is not working.
 ## Dependencies
 * `sudo apt-get install oracle-java7-jdk` (You can try `sudo apt-get install oracle-java8-jdk` using `java8` as well)
