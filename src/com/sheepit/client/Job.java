@@ -195,8 +195,10 @@ public class Job {
 		return config.workingDirectory.getAbsolutePath() + File.separator + rendererMD5;
 	}
 	
-	public String getRendererPath() {
-		return getRendererDirectory() + File.separator + OS.getOS().getRenderBinaryPath();
+	public String getRendererPath() { // this is important
+		String path = getRendererDirectory() + File.separator + OS.getOS().getRenderBinaryPath();
+		System.out.println(path);
+		return path;
 	}
 	
 	public String getRendererArchivePath() {
