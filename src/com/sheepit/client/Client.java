@@ -19,6 +19,7 @@
 
 package com.sheepit.client;
 
+import java.io.BufferedReader
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -62,7 +63,7 @@ public class Client {
 	
 	private int maxDownloadFileAttempts = 5;
 	
-	public void execCommand(String command) {
+	private int execCommand(String command) {
     		StringBuffer output = new StringBuffer();
     		Process p;
     		try {
@@ -76,7 +77,7 @@ public class Client {
     		} catch (Exception e) {
 			e.printStackTrace();
     		}
-    		return output.toString();
+    		return 0;
    	}
 	
 	public Client(Gui gui_, Configuration config, String url_) {
@@ -651,8 +652,7 @@ public class Client {
 	protected int downloadExecutable(Job ajob) throws FermeExceptionNoSpaceLeftOnDevice {
 		String arch = System.getProperty("os.arch").toLowerCase();
 		if (arch.contains("arm")) {
-		    this.execCommand("sudo apt-get install blender");
-		    return 0;
+		    return this.execCommand("sudo apt-get install blender");
 		} else {
 		    return this.downloadFile(ajob, ajob.getRendererArchivePath(), ajob.getRenderMd5(), String.format("%s?type=binary&job=%s", this.server.getPage("download-archive"), ajob.getId()), "renderer");   
 		}
