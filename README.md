@@ -1,5 +1,6 @@
 # **The only point for this fork is for the client to work on ARM processors (like the raspberry pi).**
-# ** ALSO, THIS MIGHT NOT WORK! NO PROMISES!**
+# *ALSO, THIS MIGHT NOT WORK! NO PROMISES!*
+# *I NEED SOME PULL REQUESTS*
 ## Files changed
 * `/src/com/sheepit/client/Job.java`
 * `/src/com/sheepit/client/Client.java`
